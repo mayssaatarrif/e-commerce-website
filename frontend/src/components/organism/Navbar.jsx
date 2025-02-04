@@ -34,13 +34,13 @@ const Navbar = () => {
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
-    setIsProfileDropdownOpen(false);
+    setIsProfileDropdownOpen(false); // close profile dropdown when mobile menu opens
   };
 
   const handleLinkClick = (path) => {
     setActiveLink(path);
-    setIsMobileMenuOpen(false);
-    setIsProfileDropdownOpen(false);
+    setIsMobileMenuOpen(false); // close mobile menu when a link is clicked
+    setIsProfileDropdownOpen(false); // close profile dropdown when a link is clicked
   };
 
   const toggleProfileDropdown = () => {
@@ -61,8 +61,7 @@ const Navbar = () => {
             <NavLink
               key={link.path}
               to={link.path}
-              className={`text-sm font-medium tracking-wider transition-colors duration-300 ${activeLink === link.path ? 'text-blue-600' : 'text-gray-700 hover:text-blue-500'
-                }`}
+              className={`text-sm font-medium tracking-wider transition-colors duration-300 ${activeLink === link.path ? 'text-blue-600' : 'text-gray-700 hover:text-blue-500'}`}
               onClick={() => handleLinkClick(link.path)}
             >
               {link.label}
@@ -79,14 +78,12 @@ const Navbar = () => {
 
           {/* Cart Icon with Counter */}
           <Link to="/cart" className="relative text-gray-600 hover:text-blue-600">
-            <Link to="/cart" className="relative text-gray-600 hover:text-blue-600">
-              <CiShoppingCart className="w-8 h-8" />
-              <span className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 
-                bg-black text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center 
-                rounded-full">
-                2
-              </span>
-            </Link>
+            <CiShoppingCart className="w-8 h-8" />
+            <span className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 
+              bg-black text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center 
+              rounded-full">
+              2
+            </span>
           </Link>
 
           {/* Profile Dropdown */}
@@ -98,7 +95,7 @@ const Navbar = () => {
               onClick={toggleProfileDropdown}
             />
             {isProfileDropdownOpen && (
-              <div className="absolute right-0 mt-40 w-48 bg-white rounded-lg shadow-lg border">
+              <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border">
                 <div className="py-1">
                   <NavLink to="/profile" className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
                     <FaUser className="mr-2" /> Profile
@@ -123,8 +120,8 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="absolute top-full left-0 w-full bg-white shadow-lg border md:hidden">
-          <div className="flex flex-col space-y-2 py-4">
+        <div className="absolute top-full left-0 w-full bg-white shadow-lg border md:hidden z-10">
+          <div className="flex flex-col space-y-2 py-4" ref={navMenuRef}>
             {navLinks.map((link) => (
               <NavLink
                 key={link.path}
