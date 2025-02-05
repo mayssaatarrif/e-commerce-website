@@ -19,7 +19,7 @@ const products = [
             Material composition: Cotton, Acrylic
             Manufacturer: ALIZE`,
         price: 2,
-        image: yarn1, // ✅ Fix the image reference
+        image: yarn1,
         category: "Alize",
         subcategory: "Cotton Gold",
         sizes: [0, 1, 2, 3, 4, 5, 6, 7],
@@ -39,7 +39,7 @@ const products = [
             Material composition:Cotton, Acrylic
             Manufacturer: ALIZE`,
         price: 2,
-        image: yarn2,  // ✅ Fix the image reference
+        image: yarn2, 
         category: "Alize",
         subcategory: "Cotton Baby",
         sizes: [0, 1, 2, 3, 4, 5, 6, 7],
@@ -59,7 +59,7 @@ const products = [
             Material composition: Acrylic
             Manufacturer: ALIZE`,
         price: 3,
-        image: yarn3,  // ✅ Fix the image reference
+        image: yarn3, 
         category: "Alize",
         subcategory: "Angora Gold",
         sizes: [0, 1, 2, 3, 4, 5, 6, 7],

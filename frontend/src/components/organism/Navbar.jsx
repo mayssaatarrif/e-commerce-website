@@ -95,7 +95,7 @@ const Navbar = () => {
               onClick={toggleProfileDropdown}
             />
             {isProfileDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border">
+              <div className="absolute right-0 mt-40 w-48 bg-white rounded-lg shadow-lg border">
                 <div className="py-1">
                   <NavLink to="/profile" className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
                     <FaUser className="mr-2" /> Profile

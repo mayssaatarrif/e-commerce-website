@@ -7,8 +7,8 @@ const Hero = () => {
     <div className="flex flex-col sm:flex-row items-center justify-center px-6 sm:px-12 py-16 sm:py-24 mt-16 sm:mt-20">
       
       {/* Larger Box Wrapping Text & Image */}
-      <div className="w-full max-w-4xl bg-gray-50 border border-gray-400 shadow-xl rounded-xl p-8 sm:p-12 flex flex-col sm:flex-row items-center">
-        
+      <div className="w-full max-w-7xl bg-gray-50 border border-gray-400 shadow-xl rounded-xl p-8 sm:p-12 flex flex-col sm:flex-row items-center">
+
         {/* Left Side (Text) */}
         <div className="w-full sm:w-1/2 flex flex-col justify-center items-center sm:items-start text-center sm:text-left px-4 sm:px-8">
           <div className="text-[#414141] w-full">
