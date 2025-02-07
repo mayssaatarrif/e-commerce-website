@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import {
   FaSearch, FaBars, FaTimes, FaUser, FaSignOutAlt,
@@ -7,12 +7,14 @@ import {
 import { CiShoppingCart } from "react-icons/ci";
 import logo from '../../images/logo.jpg';
 import profilepic from "../../images/profilepic.png";
+import { ShopContext } from '../../context/ShopContext';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('/');
   const navMenuRef = useRef(null);
+  const {setShowSearch} = useContext(ShopContext)
 
   const navLinks = [
     { label: 'HOME', path: '/', icon: FaHome },
@@ -34,13 +36,13 @@ const Navbar = () => {
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
-    setIsProfileDropdownOpen(false); // close profile dropdown when mobile menu opens
+    setIsProfileDropdownOpen(false); 
   };
 
   const handleLinkClick = (path) => {
     setActiveLink(path);
-    setIsMobileMenuOpen(false); // close mobile menu when a link is clicked
-    setIsProfileDropdownOpen(false); // close profile dropdown when a link is clicked
+    setIsMobileMenuOpen(false); 
+    setIsProfileDropdownOpen(false); 
   };
 
   const toggleProfileDropdown = () => {
@@ -73,7 +75,7 @@ const Navbar = () => {
         <div className="flex items-center space-x-6">
           {/* Search Icon */}
           <button className="text-gray-600 hover:text-blue-600 transition-colors">
-            <FaSearch className="w-5 h-5" />
+            <FaSearch className="w-5 h-5" onClick={()=>setShowSearch(true)} />
           </button>
 
           {/* Cart Icon with Counter */}
