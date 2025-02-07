@@ -5,7 +5,7 @@ import Title from '../../components/molecule/Title';
 import ProductItem from '../../components/molecule/ProductItem';
 
 const Collection = () => {
-    const { products } = useContext(ShopContext);
+    const { products, search, showSearch } = useContext(ShopContext);
     const [showFilter, setShowFilter] = useState(false);
     const [filterProduct, setFilterProduct] = useState([]);
     const [category, setCategory] = useState([]);
@@ -14,7 +14,7 @@ const Collection = () => {
 
     const toggleCategory = (e) => {
         setCategory(prev => 
-            prev.includes(e.target.value) 
+            prev.includes(e.target.value)  
             ? prev.filter(item => item !== e.target.value) 
             : [...prev, e.target.value]
         );
@@ -30,6 +30,10 @@ const Collection = () => {
 
     const applyFilter = () => {
         let productsCopy = [...products];
+
+        if (showSearch && search) {
+            productsCopy = productsCopy.filter(item =>item.name.toLowerCase().includes(search.toLowerCase()))
+        }
 
         if (category.length > 0) {
             productsCopy = productsCopy.filter(item => category.includes(item.category));
@@ -62,7 +66,7 @@ const Collection = () => {
 
     useEffect(() => {
         applyFilter();
-    }, [category, subcategory]);
+    }, [category, subcategory, search, showSearch]);
 
     useEffect(() => {
         sortProduct();
