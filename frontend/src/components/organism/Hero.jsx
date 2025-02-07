@@ -2,7 +2,7 @@ import React from 'react';
 import hero from '../../images/hero.jpg';
 
 const Hero = () => {
-  console.log('Hero component is rendering');
+  
   return (
     <div className="flex flex-col sm:flex-row items-center justify-center px-6 sm:px-12 py-16 sm:py-24 mt-16 sm:mt-20">
       

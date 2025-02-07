@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import yarn1 from "../images/yarn1.jpg";
 import yarn2 from "../images/yarn2.jpg"
 import yarn3 from "../images/yarn 3.jpg";
@@ -71,11 +71,17 @@ const products = [
 const ShopContextProvider = ({ children }) => {
     const currency = "$";
     const delivery_fee = 2;
+    const [search,setSearch] = useState('')
+    const [showSearch,setShowSearch] = useState(true)
 
     const value = {
         products,
         currency,
         delivery_fee,
+        search,
+        setSearch,
+        showSearch,
+        setShowSearch
     };
 
     return (
