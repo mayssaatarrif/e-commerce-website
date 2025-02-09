@@ -14,7 +14,7 @@ const Navbar = () => {
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('/');
   const navMenuRef = useRef(null);
-  const {setShowSearch} = useContext(ShopContext)
+  const {setShowSearch, getCartCount} = useContext(ShopContext)
 
   const navLinks = [
     { label: 'HOME', path: '/', icon: FaHome },
@@ -84,7 +84,7 @@ const Navbar = () => {
             <span className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 
               bg-black text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center 
               rounded-full">
-              2
+              {getCartCount()}
             </span>
           </Link>
 

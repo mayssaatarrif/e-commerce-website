@@ -2,6 +2,7 @@ import { createContext, useState } from "react";
 import yarn1 from "../images/yarn1.jpg";
 import yarn2 from "../images/yarn2.jpg"
 import yarn3 from "../images/yarn 3.jpg";
+import { toast } from "react-toastify";
 
 export const ShopContext = createContext();
 
@@ -73,6 +74,46 @@ const ShopContextProvider = ({ children }) => {
     const delivery_fee = 2;
     const [search,setSearch] = useState('')
     const [showSearch,setShowSearch] = useState(false)
+    const [cartItems, setCartItems] = useState({})
+
+    const addToCart = async (itemId,size) => {
+
+        if (!size) {
+            toast.error("Select Product Size")
+            return            
+        }
+
+        let cartData = structuredClone(cartItems)
+        if (cartData[itemId]) {
+            if (cartData[itemId][size]) {
+                cartData[itemId][size] += 1
+            }
+            else {
+                cartData[itemId][size] = 1
+            }
+        }
+        else {
+            cartData[itemId] = {}
+            cartData[itemId][size] = 1
+        }
+        setCartItems(cartData)
+    }
+
+    const getCartCount = () => {
+        let totalCount = 0
+        for(const items in cartItems) {
+            for(const item in cartItems[items]) {
+                try {
+                    if (cartItems[items][item] > 0) {
+                        totalCount += cartItems[items][item]
+                    }
+                } catch (error) {
+                    
+                }
+            }
+        }
+        return totalCount
+    }
 
     const value = {
         products,
@@ -81,7 +122,11 @@ const ShopContextProvider = ({ children }) => {
         search,
         setSearch,
         showSearch,
-        setShowSearch
+        setShowSearch,
+        cartItems,
+        setCartItems,
+        addToCart,
+        getCartCount,
     };
 
     return (
