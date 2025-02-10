@@ -5,6 +5,7 @@ import Notfound from '../features/Not Found/NotFound.jsx'
 import About from '../features/About/About.jsx'
 import Collection from '../features/Collection/Collection.jsx'
 import Product from '../features/Product/Product.jsx'
+import Cart from '../features/Cart/Cart.jsx'
 
 const MainRoute = () => {
   return (
@@ -13,6 +14,7 @@ const MainRoute = () => {
         <Route path='/about' element ={<About/>}/>
         <Route path='/collection' element = {<Collection/>}/>
         <Route path='/product/:productID' element ={<Product/>}/>
+        <Route path='/cart' element = {<Cart/>}/>
         <Route path='*' element ={<Notfound/>}/>  
           </Routes>
   )

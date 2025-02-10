@@ -3,7 +3,7 @@ import MainRoute from './routes/MainRoute';
 import Navbar from './components/organism/Navbar';
 import Footer from './components/organism/Footer';
 import SearchBar from './components/organism/SearchBar';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer} from 'react-toastify';
 
 const App = () => {
   return (
