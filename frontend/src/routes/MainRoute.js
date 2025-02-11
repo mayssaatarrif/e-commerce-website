@@ -9,6 +9,7 @@ import Cart from '../features/Cart/Cart.jsx'
 import PlaceOrder from '../features/PlaceOrder/PlaceOrder.jsx'
 import Orders from '../features/Orders/Orders.jsx'
 import Login from '../features/Login/Login.jsx'
+import Contact from '../features/Contact/Contact.jsx'
 
 const MainRoute = () => {
   return (
@@ -21,6 +22,7 @@ const MainRoute = () => {
         <Route path='/place-order' element ={<PlaceOrder/>}/>
         <Route path='/orders' element ={<Orders/>}/>
         <Route path='/login' element ={<Login/>}/>
+        <Route path='/contact' element = {<Contact/>}/>
         <Route path='*' element ={<Notfound/>}/>  
           </Routes>
   )
