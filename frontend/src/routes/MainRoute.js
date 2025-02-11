@@ -8,6 +8,7 @@ import Product from '../features/Product/Product.jsx'
 import Cart from '../features/Cart/Cart.jsx'
 import PlaceOrder from '../features/PlaceOrder/PlaceOrder.jsx'
 import Orders from '../features/Orders/Orders.jsx'
+import Login from '../features/Login/Login.jsx'
 
 const MainRoute = () => {
   return (
@@ -19,6 +20,7 @@ const MainRoute = () => {
         <Route path='/cart' element = {<Cart/>}/>
         <Route path='/place-order' element ={<PlaceOrder/>}/>
         <Route path='/orders' element ={<Orders/>}/>
+        <Route path='/login' element ={<Login/>}/>
         <Route path='*' element ={<Notfound/>}/>  
           </Routes>
   )

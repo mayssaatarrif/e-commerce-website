@@ -90,12 +90,14 @@ const Navbar = () => {
 
           {/* Profile Dropdown */}
           <div className="relative hidden md:flex items-center">
+            <Link to='/login'>
             <img
               src={profilepic}
               alt="Profile"
               className="w-8 h-8 rounded-full cursor-pointer hover:opacity-80"
               onClick={toggleProfileDropdown}
             />
+            </Link>
             {isProfileDropdownOpen && (
               <div className="absolute right-0 mt-40 w-48 bg-white rounded-lg shadow-lg border">
                 <div className="py-1">
